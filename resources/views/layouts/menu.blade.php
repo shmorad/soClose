@@ -14,10 +14,13 @@
         <div class="scroll-sidebar">
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
+                    <li class="nav-item active">
+                        <a class="nav-link nav-font" href="{{url('/')}}"><span> <i class="fas fa-home"></i> </span> Home </a>
+                    </li>
                     <li class="nav-devider mt-0" style="margin-bottom: 5px"></li>
                     <li> <a href="{{url('/dashboard')}}" ><span> <i class="fas fa-home"></i> </span><span class="hide-menu">Dashboard</span></a></li>
-                    <li> <a href="{{route('category.index')}}" ><span> <i class="fas fa-users"></i> </span><span class="hide-menu">Category</span></a></li>
-                    <li> <a href="{{route('categoryImage.index')}}" ><span> <i class="fas fa-users"></i> </span><span class="hide-menu">Category Image</span></a></li>
+                    <li> <a href="{{route('category.index')}}" ><span> <i class="fas fa-blog"></i> </span><span class="hide-menu">Category</span></a></li>
+                    <li> <a href="{{route('categoryImage.index')}}" ><span> <i class="fas fa-image"></i> </span><span class="hide-menu">Category Image</span></a></li>
                 </ul>
             </nav>
         </div>

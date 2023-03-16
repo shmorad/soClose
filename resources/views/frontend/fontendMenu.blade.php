@@ -12,10 +12,9 @@
             <li class="nav-item">
                 <a class="nav-link nav-font" href="#protfolio">Protfolio </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link nav-font" href="{{url('/dashboard')}}">Dashboard </a>
-            </li>
         </ul>
-
+        <div class="form-inline my-2 my-lg-0">
+            <a href="{{url('/dashboard')}}" class="normal-btn btn" >Dashboard</a>
+        </div>
     </div>
 </nav>
