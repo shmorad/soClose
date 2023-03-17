@@ -27,7 +27,7 @@
 			<div class="col-12">
 				<ul class="portfolio__nav nav justify-content-center mb-4">
 					<li class="nav-item">
-						<button onclick="window.location='{{ url('/') }}'" class="portfolio__nav__btn nav-link active position-relative bg-transparent border-0 active"   data-filter="*">All</button>
+						<button onclick="showAllImage()" class="portfolio__nav__btn nav-link active position-relative bg-transparent border-0 active"   data-filter="*">All</button>
 					</li>
 					@foreach ($categories as $category)
 					<li class="nav-item">
@@ -39,19 +39,6 @@
 		</div>
 		<!-- Portfolio Cards Container -->
 		<div class="row grid" id="viewImage">
-			@foreach($allimage as $allimage)
-				<div class="grid-item col-lg-4 col-sm-6 .{{$category->category}}">
-					<a href="#!" class="portfolio__card position-relative d-inline-block w-100">
-						<img src="{{$allimage->image}}" alt="Random Image" class="w-100 mt-2" style='height:250px'>
-					</a>
-				</div>
-			@endforeach
-			<div class="grid-item col-lg-4 col-sm-6 .{{$category->category}}">
-				<a href="#!" class="portfolio__card position-relative d-inline-block w-100">
-					<img src="https://source.unsplash.com/s4LntDZqEW8/380x500" alt="Random Image" class="w-100 mt-2" style='height:250px'>
-				</a>
-			</div>
-			
 			
 		</div>
 	</div>
@@ -59,6 +46,26 @@
 @endsection
 @section('script')
 <script type="text/javascript">
+showAllImage()
+// get All image
+function showAllImage(){
+	axios.get('/Allimage')
+	.then(function (response) {
+		$('#viewImage').empty();
+		var dataJSON = response.data;
+		$.each(dataJSON,function (i,item){
+			var viewImage = $('#viewImage');
+					var code = `<div class="grid-item col-lg-4 col-sm-6 ${dataJSON[i].category}">
+					<a href='#!' class='portfolio__card position-relative d-inline-block w-100'>
+						<img src='${dataJSON[i].image}' class='w-100 mt-2' style='height:250px'>
+					</a>
+				</div>`;
+				viewImage.append(code);
+		})
+	});
+}
+
+// get category wise Data
 	let url = "http://127.0.0.1:8000/";
 		function showimage(id){
 			axios.post("/image",{

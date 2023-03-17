@@ -14,8 +14,7 @@ class IndexController extends Controller
     public function index()
     {
         $categories =Category::get();
-        $allimage = CategoryImage::get();
-        return view('index',compact('categories'))->with('allimage',$allimage);
+        return view('index',compact('categories'));
     }
     /**
      * Show the form for creating a new resource.
@@ -73,10 +72,10 @@ class IndexController extends Controller
             'data' => $image,
         ]);
     }
-    // public function showAllImage(Request $request)
-    // {
-    //     $allimage = CategoryImage::all();
-    //     return $allimage;
+    public function showAllImage()
+    {
+        $allimage = CategoryImage::get();
+        return $allimage;
         
-    // }
+    }
 }

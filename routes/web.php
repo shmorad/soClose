@@ -18,5 +18,6 @@ use App\Http\Controllers\IndexController;
 Route::get('/dashboard',[DashboardController::class,'index']);
 Route::get('/',[IndexController::class,'index'] );
 Route::post('/image',[IndexController::class,'showImage']);
+Route::get('/Allimage',[IndexController::class,'showAllImage']);
 Route::Resource('category',CategoryController::class);
 Route::Resource('categoryImage',CategoryImageController::class);
